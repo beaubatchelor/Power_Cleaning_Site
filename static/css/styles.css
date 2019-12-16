@@ -1,23 +1,11 @@
-ul {
-    margin-top: 25px;
-    margin-right: 20px;
-    float: right;
+body {
+    background-color: #ffffff;
+}
+nav {
+    background-color: #145A32
 }
 
-ul li{
-    display: inline-block;
-}
-
-ul li a{
-    text-decoration: none;
-    color: #8B0000;
-    padding: 5px 20px;
-    border: 1px solid #8B0000;
-    transition: 0.6s ease;
-
-}
-
-ul li a:hover{
-    background-color: #778899;
-    color: #8B0000;
+.service-card-img {
+    height: 400px;
+    width: 200px;    
 }
