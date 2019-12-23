@@ -46,19 +46,23 @@
       <div class="container page-meat">
         <div class="row">
           <div class="col">
-            <h5>Contact First Name</h5>
-            <input type="text" id="firstName">
-            <h5>Contact Last Name</h5>
-            <input type="text" id="lastName">
-            <h5>Company Name</h5>
-            <input type="text" id="companyName">
-            <h5>Appointment Date</h5>
-            <input type="date" id="aptDate">
-            <h5>Appointment Time</h5>
-            <input type="time" id="aptTime">
-            <h5>Work Description</h5>
-            <input type="text" id="workDesc">
-            <a href="/submit" class="btn">Submit</a>
+            <form method="POST">
+              <h5>Contact First Name</h5>
+              <input type="text" name="firstName">
+              <h5>Contact Last Name</h5>
+              <input type="text" name="lastName">
+              <h5>Company Name</h5>
+              <input type="text" name="companyName">
+              <h5>Email</h5>
+              <input type="text" name="emailAddress">
+              <h5>Appointment Date</h5>
+              <input type="date" name="aptDate">
+              <h5>Appointment Time</h5>
+              <input type="time" name="aptTime">
+              <h5>Work Description</h5>
+              <input type="text" name="workDesc">
+              <button class="btn" type="submit">Submit</button>
+            </form>
           </div>
           <div class="col"></div>
           <div class="col"></div>
