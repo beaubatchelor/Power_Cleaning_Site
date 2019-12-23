@@ -1,10 +1,12 @@
 from flask import Flask, render_template, jsonify, request
 from sqlalchemy import create_engine
-from local_config import sql_user, sql_pass
+from config_local import sql_user, sql_pass
+# from config import (sql_url)
 
 app = Flask(__name__)
 
-engine = create_engine('mysql://{sql_user}:{sql_pass}@ofcmikjy9x4lroa2.cbetxkdyhwsb.us-east-1.rds.amazonaws.com:3306/o5hjwzcvjuw3utaz')
+engine = create_engine(f'mysql://{sql_user}:{sql_pass}@ofcmikjy9x4lroa2.cbetxkdyhwsb.us-east-1.rds.amazonaws.com:3306/o5hjwzcvjuw3utaz')
+# engine = create_engine(f'{sql_url}')
 
 @app.route("/")
 def index():
