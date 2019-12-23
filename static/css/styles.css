@@ -5,7 +5,17 @@ nav {
     background-color: #145A32
 }
 
-.service-card-img {
-    height: 400px;
-    width: 200px;    
+.img-size {
+    max-width: 100%;
+    height: auto;
+    margin: 2% 0%;
+    border-radius: 7px;
+}
+.text-size {
+    margin: 2% 0%;
+}
+
+.page-meat {
+    background-color: #E5E8E8;
+    border-radius: 7px;
 }

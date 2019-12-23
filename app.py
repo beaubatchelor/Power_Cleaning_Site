@@ -1,6 +1,10 @@
 from flask import Flask, render_template, jsonify, request
+from sqlalchemy import create_engine
+from local_config import sql_user, sql_pass
 
 app = Flask(__name__)
+
+engine = create_engine('mysql://{sql_user}:{sql_pass}@ofcmikjy9x4lroa2.cbetxkdyhwsb.us-east-1.rds.amazonaws.com:3306/o5hjwzcvjuw3utaz')
 
 @app.route("/")
 def index():
@@ -26,6 +30,11 @@ def services():
 def contact():
     
     return render_template("contact.html")
+
+@app.route("/submit")
+def submit():
+    
+    return 'Button Was Clicked'
 
 if __name__ == "__main__":
     app.run(debug=True)
