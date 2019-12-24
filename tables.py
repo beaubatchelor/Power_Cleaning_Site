@@ -1,8 +1,8 @@
 from __init__ import app
 from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
-from config_local import sql_user, sql_pass
-# from datetime import datetime
+# from config_local import sql_user, sql_pass
+from datetime import datetime
 from config import (sql_url)
 
 
