@@ -2,11 +2,11 @@
 # $ conda create --name <env> --file <this file>
 # platform: win-64
 ca-certificates==2019.11.27==0
-certifi==2019.11.28
-click==7.0==py_0
+certifi==2019.11.28==py37_0
+click==7.0==py37_0
 flask==1.1.1==py_0
 flask-sqlalchemy==2.4.1==py_0
-itsdangerous==1.1.0==py_0
+itsdangerous==1.1.0==py37_0
 jinja2==2.10.3==py_0
 markupsafe==1.1.1==py37he774522_0
 mysql-connector-c==6.1.11==h33f27b4_0
