@@ -47,22 +47,31 @@
         <div class="row">
           <div class="col">
             <form method="POST">
-              <h5>Contact First Name</h5>
+              <h5>Contact First Name *</h5>
               <input type="text" name="firstName">
-              <h5>Contact Last Name</h5>
+              <h5>Contact Last Name *</h5>
               <input type="text" name="lastName">
               <h5>Company Name</h5>
               <input type="text" name="companyName">
-              <h5>Email</h5>
+              <h5>Email *</h5>
               <input type="text" name="emailAddress">
               <h5>Appointment Date</h5>
               <input type="date" name="aptDate">
               <h5>Appointment Time</h5>
               <input type="time" name="aptTime">
-              <h5>Work Description</h5>
-              <input type="text" name="workDesc">
+              <h5>Service *</h5>
+              <input type="text" name="serviceDesc">
               <button class="btn" type="submit">Submit</button>
             </form>
+          </div>
+          <div class="col"></div>
+          <div class="col"></div>
+        </div>
+        <div class="row">
+          <div class="col">
+            {% for data in data %}
+            <p>{{ data.message }}</p>
+            {% endfor %}
           </div>
           <div class="col"></div>
           <div class="col"></div>

@@ -1,20 +1,6 @@
+from __init__ import app
 from flask import Flask, render_template, jsonify, request
-from sqlalchemy import create_engine
-from sqlalchemy.ext.automap import automap_base
-from sqlalchemy.orm import Session
-from config_local import sql_user, sql_pass
-# from datetime import 
-# from config import (sql_url)
-
-app = Flask(__name__)
-
-# SQL Connection
-# engine = create_engine(f'{sql_url}')
-engine = create_engine(f'mysql://{sql_user}:{sql_pass}@ofcmikjy9x4lroa2.cbetxkdyhwsb.us-east-1.rds.amazonaws.com:3306/o5hjwzcvjuw3utaz')
-
-Base = automap_base()
-Base.prepare(engine, reflect=True)
-
+from tables import Customer_site_dump, db
 
 
 @app.route('/')
@@ -39,20 +25,26 @@ def services():
 
 @app.route('/contact')
 def contact():
-    
-    return render_template('contact.html')
+    data = [{ 'message' : ''}]
+    return render_template('contact.html', data=data)
 
 @app.route('/contact', methods=['POST'])
 def contact_post():
-    first_name = request.form['firstName']
-    last_name = request.form['lastName']
-    company_name = request.form['companyName']
-    email_address = request.form['emailAddress']
-    apt_date = request.form['aptDate']
-    apt_time = request.form['aptTime']
-    work_desc = request.form['workDesc']
+    form = request.form
+    first_name = form['firstName']
+    last_name = form['lastName']
+    company_name = form['companyName']
+    email_address = form['emailAddress']
+    apt_date = form['aptDate']
+    apt_time = form['aptTime']
+    service_desc = form['serviceDesc']
+    submitted_info = Customer_site_dump(first_name=first_name, last_name=last_name, company_name=company_name, apt_date=apt_date, apt_time=apt_time, service_desc=service_desc, email_address=email_address)
+    data = [{ 'message' : f'Thank you for your interest {first_name}! Someone from our team will contact you shortly.'}]
 
-    return render_template('contact.html')
+    db.session.add(submitted_info)
+    db.session.commit()
+
+    return render_template('contact.html', form=form, data=data)
 
 if __name__ == '__main__':
     app.run(debug=True)
