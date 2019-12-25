@@ -2,7 +2,7 @@ from __init__ import app
 from flask import Flask, render_template, jsonify, request
 from tables import Customer_site_dump, db
 import datetime as dt
-
+from scripts import messages
 
 @app.route('/')
 def index():
@@ -17,7 +17,8 @@ def home():
 @app.route('/bio')
 def bio():
     
-    return render_template('bio.html')
+    data = messages.bio_message
+    return render_template('bio.html', data=data)
 
 @app.route('/services')
 def services():
@@ -26,7 +27,8 @@ def services():
 
 @app.route('/contact')
 def contact():
-    data = [{ 'message' : ''}]
+
+    data = messages.blank_message
     return render_template('contact.html', data=data)
 
 @app.route('/contact', methods=['POST'])
@@ -41,7 +43,7 @@ def contact_post():
     service_desc = form['serviceDesc']
     ts = dt.datetime.now()
     submitted_info = Customer_site_dump(first_name=first_name, last_name=last_name, company_name=company_name, apt_date=apt_date, apt_time=apt_time, service_desc=service_desc, email_address=email_address, ts=ts)
-    data = [{ 'message' : f'Thank you for your interest {first_name}! Someone from our team will contact you shortly.'}]
+    data = messages.thank_you_message(first_name)
 
     db.session.add(submitted_info)
     db.session.commit()
