@@ -5,7 +5,10 @@ nav {
     background-color: #145A32
 }
 
-
+.contact-info {
+    margin: 5%;
+    font-size: medium;
+}
 .img-size {
     max-width: 100%;
     height: auto;

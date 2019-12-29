@@ -45,36 +45,53 @@
       
       <div class="container page-meat">
         <div class="row">
-          <div class="col">
+          <div class="col-4">
             <form method="POST">
-              <h5>Contact First Name *</h5>
-              <input type="text" name="firstName">
-              <h5>Contact Last Name *</h5>
-              <input type="text" name="lastName">
-              <h5>Company Name</h5>
-              <input type="text" name="companyName">
-              <h5>Email *</h5>
-              <input type="text" name="emailAddress">
-              <h5>Appointment Date</h5>
-              <input type="date" name="aptDate">
-              <h5>Appointment Time</h5>
-              <input type="time" name="aptTime">
-              <h5>Service *</h5>
-              <input type="text" name="serviceDesc">
-              <button class="btn" type="submit">Submit</button>
+              <table>
+                <tr class="contact-info">
+                  <td><h5 style="font-size: medium;">First Name *</h5></td>
+                  <td><input type="text" name="firstName"></td>
+                </tr>
+                <tr class="contact-info">
+                  <td><h5 style="font-size: medium;">Last Name *</h5></td>
+                  <td><input type="text" name="lastName"></td>
+                </tr>
+                <tr class="contact-info">
+                  <td><h5 style="font-size: medium;">Company Name</h5></td>
+                  <td><input type="text" name="companyName"></td>
+                </tr>
+                <tr class="contact-info">
+                  <td><h5 style="font-size: medium;">Email *</h5></td>
+                  <td><input type="text" name="emailAddress"></td>
+                </tr>
+                <tr class="contact-info">
+                  <td><h5 style="font-size: medium;">Appointment Date</h5></td>
+                  <td><input type="date" name="aptDate"></td>
+                </tr>
+                <tr class="contact-info">
+                  <td><h5 style="font-size: medium;">Appointment Time</h5></td>
+                  <td><input type="time" name="aptTime"></td>
+                </tr>
+                <tr class="contact-info">
+                  <td><h5 style="font-size: medium;">Service *</h5></td>
+                  <td><input type="text" name="serviceDesc"></td>
+                </tr>
+                <tr class="contact-info">
+                  <td><p></p></td>
+                  <td><button class="btn" type="submit">Submit</button></td>
+                </tr>
+              </table>
             </form>
           </div>
-          <div class="col"></div>
-          <div class="col"></div>
+          <div class="col-8"></div>
         </div>
         <div class="row">
-          <div class="col">
+          <div class="col-4">
             {% if data %}
             <p>{{ data.message }}</p>
             {% endif %}
           </div>
-          <div class="col"></div>
-          <div class="col"></div>
+          <div class="col-8"></div>
         </div>
       </div>
 

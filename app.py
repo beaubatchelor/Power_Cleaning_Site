@@ -42,11 +42,14 @@ def contact_post():
     apt_time = form['aptTime']
     service_desc = form['serviceDesc']
     ts = dt.datetime.now()
-    submitted_info = Customer_site_dump(first_name=first_name, last_name=last_name, company_name=company_name, apt_date=apt_date, apt_time=apt_time, service_desc=service_desc, email_address=email_address, ts=ts)
-    data = messages.thank_you_message(first_name)
 
-    db.session.add(submitted_info)
-    db.session.commit()
+    if first_name and last_name and email_address and service_desc:
+        submitted_info = Customer_site_dump(first_name=first_name, last_name=last_name, company_name=company_name, apt_date=apt_date, apt_time=apt_time, service_desc=service_desc, email_address=email_address, ts=ts)
+        data = messages.thank_you_message(first_name)
+        db.session.add(submitted_info)
+        db.session.commit()
+    else:
+        data = messages.error_message
 
     return render_template('contact.html', form=form, data=data)
 
