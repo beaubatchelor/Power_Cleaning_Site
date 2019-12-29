@@ -1,9 +1,9 @@
 from __init__ import app
 from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
-from config_local import (sql_url)
+# from config_local import (sql_url)
 from datetime import datetime
-# from config import (sql_url)
+from config import (sql_url)
 
 
 app.config['SQLALCHEMY_DATABASE_URI'] = f'{sql_url}'
